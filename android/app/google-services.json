@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1077191201955",
+    "project_id": "nwitter-d700b",
+    "storage_bucket": "nwitter-d700b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077191201955:android:cebf7bd95b2398aa199b16",
+        "android_client_info": {
+          "package_name": "com.example.pou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077191201955-04t9oekhd4iuk29cp21cm9cn1llctrv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl3txSRpZPAi982RB63IZ2vjFW8QS9xl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077191201955-04t9oekhd4iuk29cp21cm9cn1llctrv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -133,6 +133,7 @@ class _FristChatState extends State<FristChat> {
                                   onDone: () {
                                     Get.to(FristChatAnswer(
                                       answer: sendMessage1,
+                                      score: 0,
                                     ));
                                     setState(() {});
                                   },
@@ -152,6 +153,7 @@ class _FristChatState extends State<FristChat> {
                                     onDone: () {
                                       Get.to(FristChatAnswer(
                                         answer: sendMessage1,
+                                        score: 10,
                                       ));
                                       setState(() {});
                                     },
@@ -171,6 +173,7 @@ class _FristChatState extends State<FristChat> {
                                   onDone: () {
                                     Get.to(FristChatAnswer(
                                       answer: sendMessage1,
+                                      score: 3,
                                     ));
                                     setState(() {});
                                   },
@@ -189,6 +192,7 @@ class _FristChatState extends State<FristChat> {
                                   onDone: () {
                                     Get.to(FristChatAnswer(
                                       answer: sendMessage1,
+                                      score: 5,
                                     ));
                                     setState(() {});
                                   },

@@ -12,8 +12,10 @@ class FristChatAnswer extends StatefulWidget {
   const FristChatAnswer({
     super.key,
     required this.answer,
+    required this.score,
   });
   final String answer;
+  final int score;
 
   @override
   _FristChatAnswerState createState() => _FristChatAnswerState();
@@ -26,7 +28,7 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
   String sendMessage1 = '';
   bool showMyAnswer = false;
   String hisAnswer = "";
-  Config config = Config();
+
   @override
   void initState() {
     super.initState();
@@ -53,13 +55,13 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
   }
 
   matchHisAnswer() {
-    if (config.score == 0) {
+    if (widget.score == 0) {
       return hisAnswer = "ㅎㅎ....";
-    } else if (config.score >= 10) {
+    } else if (widget.score >= 10) {
       return hisAnswer = "안뇽하세요!!ㅎㅎ";
-    } else if (config.score == 3) {
+    } else if (widget.score == 3) {
       return hisAnswer = "안녕하세요..";
-    } else if (config.score == 5) {
+    } else if (widget.score == 5) {
       return hisAnswer = "안녕하세요!";
     }
   }
@@ -99,6 +101,7 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
                     style: TextStyle(fontSize: 18.sp),
                   ),
                 ),
+                SizedBox(height: 8.h),
                 Row(
                   children: [
                     Spacer(),
@@ -121,6 +124,7 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
                     ),
                   ],
                 ),
+                SizedBox(height: 8.h),
                 AnimatedOpacity(
                   opacity: _currentIndex >= 2 ? 1.0 : 0.0,
                   duration: Duration(milliseconds: 500),

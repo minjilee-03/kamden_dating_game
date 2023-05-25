@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pou/screen/story2.dart';
 import 'package:pou/widget/score_dialog.dart';
 import 'dart:async';
 
@@ -31,6 +32,8 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
   bool start = false;
   String hisAnswer = "";
   String meAnswer = "";
+  bool done = false;
+
   @override
   void initState() {
     super.initState();
@@ -47,7 +50,7 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
   void _startTimer() {
     _timer = Timer.periodic(Duration(milliseconds: 900), (timer) {
       setState(() {
-        if (_currentIndex < 7) {
+        if (_currentIndex < 8) {
           _currentIndex++;
         } else {
           _timer?.cancel();
@@ -244,11 +247,6 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
                     ? AnimatedOpacity(
                         opacity: _currentIndex >= 7 ? 1.0 : 0.0,
                         duration: Duration(milliseconds: 900),
-                        onEnd: () {
-                          setState(() {
-                            showDialog = !showDialog;
-                          });
-                        },
                         child: Container(
                           alignment: Alignment.center,
                           child: Text(
@@ -257,6 +255,24 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
                           ),
                         ),
                       )
+                    : SizedBox(),
+                start
+                    ? AnimatedOpacity(
+                        opacity: _currentIndex >= 8 ? 1.0 : 0.0,
+                        duration: Duration(milliseconds: 900),
+                        child: InkWell(
+                          onTap: () {
+                            Get.to(const Story2());
+                          },
+                          child: Text(
+                            'Next',
+                            style: TextStyle(
+                              color: Color.fromARGB(216, 255, 255, 255),
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ))
                     : SizedBox(),
               ],
             ),

@@ -264,12 +264,16 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
                           onTap: () {
                             Get.to(const Story2());
                           },
-                          child: Text(
-                            'Next',
-                            style: TextStyle(
-                              color: Color.fromARGB(216, 255, 255, 255),
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w700,
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                              'Next',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
                         ))

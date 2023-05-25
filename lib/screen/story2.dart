@@ -20,22 +20,30 @@ class _Story2State extends State<Story2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(255, 92, 146, 30),
       body: Container(
         alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            // opacity: 30.0,
+            image: AssetImage('assets/home.jpg'), // 배경 이미지
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '친구에게 나캠든을 소개 받은 당신.',
+              '어느정도 서로의 대해 대화를 나눈 두 사람.',
               style: TextStyle(
+                color: Color.fromARGB(216, 255, 255, 255),
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),
             Text(
-              '호감도 100을 만들어서 꼬셔라!',
+              '첫 약속 장소를 잡으려고 한다.',
               style: TextStyle(
+                color: Color.fromARGB(216, 255, 255, 255),
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w700,
               ),

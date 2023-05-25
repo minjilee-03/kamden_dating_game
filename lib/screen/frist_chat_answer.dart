@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:pou/widget/widget.dart';
 
 import '../config/config.dart';
+import '../widget/profile_dialog.dart';
 
 class FristChatAnswer extends StatefulWidget {
   const FristChatAnswer({
@@ -27,8 +28,9 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
   Timer? _timer;
   String sendMessage1 = '';
   bool showMyAnswer = false;
+  bool start = false;
   String hisAnswer = "";
-
+  String meAnswer = "";
   @override
   void initState() {
     super.initState();
@@ -43,9 +45,9 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(milliseconds: 500), (timer) {
+    _timer = Timer.periodic(Duration(milliseconds: 900), (timer) {
       setState(() {
-        if (_currentIndex < 2) {
+        if (_currentIndex < 7) {
           _currentIndex++;
         } else {
           _timer?.cancel();
@@ -56,13 +58,17 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
 
   matchHisAnswer() {
     if (widget.score == 0) {
-      return hisAnswer = "ㅎㅎ....";
+      hisAnswer = "ㅎㅎ....";
+      meAnswer = "뭐야 답장 왜 이래";
     } else if (widget.score >= 10) {
-      return hisAnswer = "안뇽하세요!!ㅎㅎ";
+      hisAnswer = "안뇽하세요!!ㅎㅎ";
+      meAnswer = "뭐야 좀 귀엽네?";
     } else if (widget.score == 3) {
-      return hisAnswer = "안녕하세요..";
+      hisAnswer = "안녕하세요..";
+      meAnswer = "흠...";
     } else if (widget.score == 5) {
-      return hisAnswer = "안녕하세요!";
+      hisAnswer = "안녕하세요!";
+      meAnswer = "오...";
     }
   }
 
@@ -141,6 +147,117 @@ class _FristChatAnswerState extends State<FristChatAnswer> {
                     ),
                   ),
                 ),
+                SizedBox(height: 28.h),
+                AnimatedOpacity(
+                  opacity: _currentIndex >= 3 ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 500),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      meAnswer,
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                AnimatedOpacity(
+                  opacity: _currentIndex >= 4 ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 700),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '근데 내가 지금 연애할 때가 맞나?',
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                AnimatedOpacity(
+                  opacity: _currentIndex >= 5 ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 800),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '좀 귀찮네...',
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                AnimatedOpacity(
+                  opacity: _currentIndex >= 6 ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: 900),
+                  onEnd: () {
+                    setState(() {
+                      showDialog = !showDialog;
+                    });
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '음? 프로필 사진? 구경해볼까?',
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                showDialog
+                    ? Align(
+                        alignment: Alignment.bottomCenter,
+                        child: RoutingBtn(
+                          title: '예',
+                          onTap: () async {
+                            setState(() {
+                              showDialog = !showDialog;
+                            });
+                            await Get.dialog(ProfileDialog(
+                              ontap: () {
+                                Get.back();
+                                setState(() {
+                                  start = !start;
+                                });
+                              },
+                            ));
+                          },
+                        ),
+                      )
+                    : const SizedBox(),
+                start
+                    ? AnimatedOpacity(
+                        opacity: _currentIndex >= 6 ? 1.0 : 0.0,
+                        duration: Duration(milliseconds: 900),
+                        onEnd: () {
+                          setState(() {
+                            showDialog = !showDialog;
+                          });
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '............',
+                            style: TextStyle(fontSize: 18.sp),
+                          ),
+                        ),
+                      )
+                    : SizedBox(),
+                start
+                    ? AnimatedOpacity(
+                        opacity: _currentIndex >= 7 ? 1.0 : 0.0,
+                        duration: Duration(milliseconds: 900),
+                        onEnd: () {
+                          setState(() {
+                            showDialog = !showDialog;
+                          });
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '널 무조건 내 남자로 만들겠어.',
+                            style: TextStyle(fontSize: 18.sp),
+                          ),
+                        ),
+                      )
+                    : SizedBox(),
               ],
             ),
           ),

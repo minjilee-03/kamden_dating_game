@@ -7,14 +7,14 @@ import 'package:pou/screen/place_choice.dart';
 
 late AssetsAudioPlayer _assetsAudioPlayer = AssetsAudioPlayer.newPlayer();
 
-class Story2 extends StatefulWidget {
-  const Story2({super.key});
+class Story3 extends StatefulWidget {
+  const Story3({super.key});
 
   @override
-  State<Story2> createState() => _Story2State();
+  State<Story3> createState() => _Story3State();
 }
 
-class _Story2State extends State<Story2> {
+class _Story3State extends State<Story3> {
   bool isDone = false;
   @override
   Widget build(BuildContext context) {
